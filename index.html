@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Photo Library Viewer</title>
+   <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+  </head>
+  <body>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="models/AppModel.js"></script>
+    <script src="models/RowModel.js"></script>
+    <script src="views/AppView.js"></script>
+    <script src="views/TableView.js"></script>
+    <script src="views/RowView.js"></script>
+    <script src="views/ImageView.js"></script>
+
+    <script src="data/data.js"></script>
+    <script>
+    $(function() {
+
+      var rows = new Backbone.Collection(imageData, {model: RowModel});
+      var app = new AppModel({collection: rows});
+
+      var appView = new AppView({model: app});
+
+      $('body').append(appView.render());
+
+    });
+    </script>
+  </body>
+</html>
