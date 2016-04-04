@@ -1,13 +1,10 @@
 var RowView = Backbone.View.extend({
   tagName: 'tr',
 
-  imgTemplateBasic: _.template('<td class="img-title"><%=title%></td>'),
-
-  imgTemplateWithImage: _.template('<td class="img-title"><%=title%></td><td><img src="<%=image%>"></td>'),
+  rowTemplate: _.template('<td class="img-title"><%=title%></td>'),
   
   render: function() {
-    var imgTemplate = this.model.get('displayInfo') ? this.imgTemplateWithImage : this.imgTemplateBasic;
-    this.$el.html(imgTemplate(this.model.attributes));
+    this.$el.html(this.rowTemplate(this.model.attributes));
     return this;
   },
   

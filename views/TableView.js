@@ -10,6 +10,11 @@ var TableView = Backbone.View.extend({
 
     return this;
   },
+
+  addImage: function(newImage) {
+    this.add(newImage);
+    this.render();
+  },
   
   initialize: function() {
     this.render();

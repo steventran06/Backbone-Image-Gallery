@@ -14,6 +14,10 @@ var AppModel = Backbone.Model.extend({
     params.collection.on('imageswap', function(image) {
       this.set('currentImage', image);
     }, this);
+
+    params.collection.on('ratingchange', function(rating) {
+      this.rating.set("rating", 8);
+    }, this);
   }
 
 });
